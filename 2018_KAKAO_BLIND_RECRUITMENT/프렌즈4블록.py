@@ -8,8 +8,8 @@ def solution(m, n, board):
             for j in range(n - 1):
                 if board[i][j] == board[i][j+1] and board[i][j+1] == board[i+1][j+1] and board[i+1][j] == board[i+1][j+1] and board[i+1][j+1] != 'x':
                     delete_set.update([(i, j), (i, j+1), (i+1, j), (i+1, j+1)])
-        for idx in delete_set:
-            board[idx[0]][idx[1]] = 'x'
+        for (i,j) in delete_set:
+            board[i][j] = 'x'
         board = down(m, n, board)
         answer += len(delete_set)
         if len(delete_set) == 0:
@@ -26,3 +26,4 @@ def down(m, n, board):
     if chk:
         down(m, n, board)
     return board
+print(solution(4,5,["CCBDE", "AAADE", "AAABF", "CCBBF"]))
