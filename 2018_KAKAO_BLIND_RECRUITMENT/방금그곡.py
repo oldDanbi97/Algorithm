@@ -26,4 +26,3 @@ def solution(m, musicinfos):
         if len(title_list) == 0: answer = '(None)'
         else: answer = sorted(title_list, key= lambda x: -x[1])[0][0]
     return answer
-print(solution(	"A#", ["13:00,13:02,HAPPY,B#A#"]))
