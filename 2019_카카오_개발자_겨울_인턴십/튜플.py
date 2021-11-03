@@ -1,6 +1,6 @@
 def solution(s):
     tuple_list = [i.split(',') for i in s[1:-2].replace('{','').split('},')]
-    tuple_list = sorted(tuple_list, key= lambda x: len(x))
+    tuple_list = sorted(tuple_list, key= len)
     tmp_tupe = tuple_list[0]
     for i in tuple_list[1:]:
         if set(tmp_tupe) != set(i):
