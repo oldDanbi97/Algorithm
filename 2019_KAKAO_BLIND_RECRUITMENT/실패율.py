@@ -13,5 +13,3 @@ def solution(N, stages):
     ratio = sorted(ratio, key=lambda x: -x[1])
     answer = [i[0] for i in ratio]
     return answer
-
-print(solution(5, [2, 1, 2, 6, 2, 4, 3, 3]))
