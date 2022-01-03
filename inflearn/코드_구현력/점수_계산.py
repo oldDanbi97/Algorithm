@@ -1,5 +1,4 @@
 import sys
-sys.stdin=open(r"./inflearn/input.txt", "rt")
 N = int(input())
 answer = list(map(int, input().split()))
 res = 0
