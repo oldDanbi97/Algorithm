@@ -1,5 +1,3 @@
-import sys
-sys.stdin=open(r"./inflearn/input.txt", "rt")
 n, m = map(int, input().split())
 a = list(map(int, input().split()))
 a.sort()
