@@ -1,13 +1,13 @@
 import sys
 sys.stdin=open(r"./inflearn/input.txt", "r")
-n = int(input())
-a = list(map(int, input().split()))
-seq = [0 for _ in range(n)]
-for i in range(n):
-    for j in range(n):
-        if a[i] == 0 and seq[j] == 0:
-            seq[j] = i + 1
-            break
-        elif seq[j] == 0:
-            a[i] -= 1
-print(*seq)
+n, m = map(int, input().split())
+n = list(map(int, str(n)))
+stack = []
+for i in n:
+    while stack and m > 0 and stack[-1] < i:
+        stack.pop()
+        m -= 1
+    stack.append(i)
+if m != 0:
+    stack = stack[:-m]
+print(''.join(map(str, stack)))
