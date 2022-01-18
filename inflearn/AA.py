@@ -1,13 +1,16 @@
 import sys
 sys.stdin=open(r"./inflearn/input.txt", "r")
-n, m = map(int, input().split())
-n = list(map(int, str(n)))
+s = input()
+n = len(s)
 stack = []
-for i in n:
-    while stack and m > 0 and stack[-1] < i:
+cnt = 0
+for i in range(n):
+    if s[i] == '(':
+        stack.append(s[i])
+    else:
         stack.pop()
-        m -= 1
-    stack.append(i)
-if m != 0:
-    stack = stack[:-m]
-print(''.join(map(str, stack)))
+        if s[i-1] == '(':
+            cnt += len(stack)
+        else:
+            cnt += 1
+print(cnt)
