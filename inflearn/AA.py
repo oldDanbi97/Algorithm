@@ -1,25 +1,12 @@
 import sys
+from collections import deque
 sys.stdin=open(r"./inflearn/input.txt", "r")
-s = input()
-stack = []
-for i in s:
-    if i.isdecimal():
-        stack.append(int(i))
-    else:
-        if i == '+':
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(b+a)
-        elif i == '-':
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(b-a)
-        elif i == "*":
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(b*a)
-        elif i == "/":
-            a = stack.pop()
-            b = stack.pop()
-            stack.append(b/a)
-print(stack.pop())
+n, k = map(int, input().split())
+queue = deque(list(range(1, n+1)))
+while queue:
+    for _ in range(k-1):
+        cur = queue.popleft()
+        queue.append(cur)
+    queue.popleft()
+    if len(queue) == 1:
+        print(queue.pop())
