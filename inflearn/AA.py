@@ -1,12 +1,16 @@
 import sys
 from collections import deque
 sys.stdin=open(r"./inflearn/input.txt", "r")
-n, k = map(int, input().split())
-queue = deque(list(range(1, n+1)))
-while queue:
-    for _ in range(k-1):
-        cur = queue.popleft()
+n, m = map(int, input().split())
+p = list(map(int, input().split()))
+queue = deque([(i, p[i]) for i in range(n)])
+cnt = 0
+while True:
+    cur = queue.popleft()
+    if any(cur[1] < x[1] for x in queue):
         queue.append(cur)
-    queue.popleft()
-    if len(queue) == 1:
-        print(queue.pop())
+    else:
+        cnt += 1
+        if cur[0] == m:
+            break
+print(cnt)
