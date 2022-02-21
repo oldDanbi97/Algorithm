@@ -1,6 +1,4 @@
-import sys
 from collections import deque
-sys.stdin=open(r"./inflearn/input.txt", "r")
 sub = input()
 n = int(input())
 for i in range(n):
